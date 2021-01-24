@@ -1,8 +1,11 @@
 ## Spring Cloud Config Server
 
-### Default Port Mappings - For Single Host
-| Service Name | Port | 
+### Default Port Mappings - For Single Host (Cloud)
+| Project ||
 | --------| -----|
+| **[KWG MICROSERVICES BREWERY](https://github.com/kawgh1/kwg-microservices-brewery)** ||
+| **Service Name** | **Port** | 
+| | |
 | **[Brewery Beer Service](https://github.com/kawgh1/mssc-beer-service)** | 8080 |
 | **[Brewery Beer Order Service](https://github.com/kawgh1/mssc-beer-order-service)** | 8081 |
 | **[Brewery Beer Inventory Service](https://github.com/kawgh1/mssc-beer-inventory-service)** | 8082 |
