@@ -1,6 +1,8 @@
 ## Spring Cloud Config Server
 pulls its configurations from [Brewery Cloud Config Repo](https://github.com/kawgh1/mssc-brewery-cloud-config-repo)
 
+![brewery microservices diagram](https://raw.githubusercontent.com/kawgh1/kwg-microservices-brewery/master/cloud-config-server-diagram.png)
+
 ### Default Port Mappings - For Single Host (Cloud)
 | Project ||
 | --------| -----|
