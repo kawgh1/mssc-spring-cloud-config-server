@@ -21,6 +21,13 @@
     </properties>
 
     <dependencies>
+        <!--        sleuth / zipkin logging trace see resources/logback-spring.xml-->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>6.3</version>
+        </dependency>
+<!--        cloud-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
