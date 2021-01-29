@@ -18,6 +18,8 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+        <docker.image.prefix>krseven</docker.image.prefix>
+        <docker.image.name>${project.artifactId}</docker.image.name>
     </properties>
 
     <dependencies>
@@ -65,6 +67,50 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+    <plugins>
+
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <!--                layers for docker and spring boot layered builds -->
+            <configuration>
+                <layers>
+                    <enabled>true</enabled>
+                    <includeLayerTools>true</includeLayerTools>
+                </layers>
+            </configuration>
+        </plugin>
+
+        <!--            fabric8 for docker build -->
+        <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.33.0</version>
+            <configuration>
+                <verbose>true</verbose>
+                <images>
+                    <image>
+                        <name>${docker.image.prefix}/${docker.image.name}</name>
+                        <alias>${project.artifactId}</alias>
+                        <build>
+                            <!--copies artifact to docker build dir in target-->
+                            <assembly>
+                                <descriptorRef>artifact</descriptorRef>
+                            </assembly>
+                            <dockerFile>Dockerfile</dockerFile>
+                            <tags>
+                                <tag>latest</tag>
+                                <tag>${project.version}</tag>
+                            </tags>
+                        </build>
+                    </image>
+                </images>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 
 

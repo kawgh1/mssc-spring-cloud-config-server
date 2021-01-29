@@ -1,0 +1,70 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------< com.kwgdev:mssc-spring-cloud-config-server >-------------
+[INFO] Building mssc-spring-cloud-config-server 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- docker-maven-plugin:0.33.0:build (default-cli) @ mssc-spring-cloud-config-server ---
+[INFO] Copying files to C:\Users\----\IdeaProjects\mssc-spring-cloud-config-server\target\docker\<docker-username>\mssc-spring-cloud-config-server\build\maven
+[INFO] Building tar: C:\Users\----\IdeaProjects\mssc-spring-cloud-config-server\target\docker\<docker-username>\mssc-spring-cloud-config-server\tmp\docker-build.tar
+[INFO] DOCKER> [<docker-username>/mssc-spring-cloud-config-server:latest] "mssc-spring-cloud-config-server": Created docker-build.tar in 3 seconds
+[INFO] DOCKER> Step 1/13 : FROM openjdk:11-jre-slim as builder
+[INFO] DOCKER>
+[INFO] DOCKER> ---> ff68ba8d72c9
+[INFO] DOCKER> Step 2/13 : WORKDIR application
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Using cache
+[INFO] DOCKER> ---> 3e6956397948
+[INFO] DOCKER> Step 3/13 : ADD maven/mssc-spring-cloud-config-server-0.0.1-SNAPSHOT.jar mssc-spring-cloud-config-server-0.0.1-SNAPSHOT.jar
+[INFO] DOCKER>
+[INFO] DOCKER> ---> 513bebe01bbb
+[INFO] DOCKER> Step 4/13 : RUN java -Djarmode=layertools -jar mssc-spring-cloud-config-server-0.0.1-SNAPSHOT.jar extract
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Running in d4244c62efbe
+[INFO] DOCKER> Removing intermediate container d4244c62efbe
+[INFO] DOCKER> ---> 258c4783be69
+[INFO] DOCKER> Step 5/13 : FROM openjdk:11-jre-slim
+[INFO] DOCKER>
+[INFO] DOCKER> ---> ff68ba8d72c9
+[INFO] DOCKER> Step 6/13 : LABEL PROJECT_NAME=mssc-spring-cloud-config-server       PROJECT=com.kwgdev:mssc-spring-cloud-config-server:jar:0.0.1-SNAPSHOT
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Running in 5edbcdb0369b
+[INFO] DOCKER> Removing intermediate container 5edbcdb0369b
+[INFO] DOCKER> ---> 75483cee4326
+[INFO] DOCKER> Step 7/13 : EXPOSE 8080
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Running in 328d8ce5737d
+[INFO] DOCKER> Removing intermediate container 328d8ce5737d
+[INFO] DOCKER> ---> dee4cc6ab21d
+[INFO] DOCKER> Step 8/13 : WORKDIR application
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Running in e00055c50aa1
+[INFO] DOCKER> Removing intermediate container e00055c50aa1
+[INFO] DOCKER> ---> 0211a5f428d3
+[INFO] DOCKER> Step 9/13 : COPY --from=builder application/dependencies/ ./
+[INFO] DOCKER>
+[INFO] DOCKER> ---> 912918e41455
+[INFO] DOCKER> Step 10/13 : COPY --from=builder application/spring-boot-loader/ ./
+[INFO] DOCKER>
+[INFO] DOCKER> ---> 8ed43166e4d2
+[INFO] DOCKER> Step 11/13 : COPY --from=builder application/snapshot-dependencies/ ./
+[INFO] DOCKER>
+[INFO] DOCKER> ---> 4bb43e3d2aeb
+[INFO] DOCKER> Step 12/13 : COPY --from=builder application/application/ ./
+[INFO] DOCKER>
+[INFO] DOCKER> ---> cff1e917f5a5
+[INFO] DOCKER> Step 13/13 : ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "org.springframework.boot.loader.JarLauncher"]
+[INFO] DOCKER>
+[INFO] DOCKER> ---> Running in e6e05ddd8500
+[INFO] DOCKER> Removing intermediate container e6e05ddd8500
+[INFO] DOCKER> ---> dc1ded26ce5b
+[INFO] DOCKER> Successfully built dc1ded26ce5b
+[INFO] DOCKER> Successfully tagged <docker-username>/mssc-spring-cloud-config-server:latest
+[INFO] DOCKER> [<docker-username>/mssc-spring-cloud-config-server:latest] "mssc-spring-cloud-config-server": Built image sha256:dc1de
+[INFO] DOCKER> [<docker-username>/mssc-spring-cloud-config-server:latest] "mssc-spring-cloud-config-server": Tag with latest,0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.627 s
+[INFO] Finished at: 2021-01-28T23:45:32-06:00
+[INFO] ------------------------------------------------------------------------
