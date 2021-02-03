@@ -238,3 +238,45 @@ pulls its configurations from [Brewery Cloud Config Repo](https://github.com/kaw
      - https://www.udemy.com/course/spring-boot-microservices-with-spring-cloud-beginner-to-guru/learn/lecture/20118108#questions
      
      [Top](#top)
+     
+### [Consolidated Logging (ELK Stack)](#consolidated-logging-elk-stack)
+  
+  ![elk stack diagram](https://raw.githubusercontent.com/kawgh1/kwg-microservices-brewery/master/server-images/ELK-Stack-diagram.png)
+
+#### - E - Elasticsearch
+#### - L - Logstash
+#### - K - Kibana
+  
+  
+- All products open source, supported by company called elastic
+- **Elasticsearch**
+    - JSON based search engine based on Lucene
+        - Highly scalable - 100s of nodes (cloud scale)
+- **Logstash**
+    - Data processing pipeline for log data
+    - Similar to ETL tool "Extract-Transform-Load"
+        - Allows to:
+            - Collect log data from multiple sources
+            - Transform that log data
+            - Send log data to Elasticsearch
+            
+- **Kibana**
+    - Data visualization fool for Elasticsearch
+    - Can query data and act as a dashboard
+    - Can also create charts, graphs and alerts
+        - Many many more features
+        
+- FileBeat
+    - FileBeat is the log shipper
+    - Moves log data from a client machine to a destination
+    - Often destination is a **logstash server**
+        - Logstash is used for further transformation before sending to Elasticsearch
+        
+- ELK Without Logstash
+    - Filebeat has ability to do ***some*** transformations
+    - Thus, possible to skip Logstash and write directly to Elasticsearch
+    - Previously we setup JSON log output
+    - Filebeat can convert JSON logs to JSON objects for Elasticsearch
+    
+  
+  [Top](#top)
